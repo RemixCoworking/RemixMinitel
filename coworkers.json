@@ -1,0 +1,32 @@
+[
+  {
+    "firstname": "Anthony",
+    "lastname": "Du Test",
+    "email": "antho@studio.com",
+    "bio": "Fondateur - TFC",
+    "tags": [
+      "Startup",
+      "Art"
+    ]
+  },
+  {
+    "firstname": "Charles",
+    "lastname": "Latoure",
+    "email": "charles.latoure@me.com",
+    "bio": "Photographe Indépendant, je puise dans le quotidien et souhaite mettre à portée de nos sens l’imaginaire.",
+    "tags": [
+      "Photo",
+      "Creative"
+    ]
+  },
+  {
+    "firstname": "Charline",
+    "lastname": "Lepape",
+    "email": "charline.lepape@gmail.com",
+    "bio": "Freelance UX",
+    "tags": [
+      "Startup",
+      "UX"
+    ]
+  }
+]
