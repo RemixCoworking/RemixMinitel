@@ -63,6 +63,16 @@ var fuse = new Fuse(coworkers, options);
 
 const search = query => fuse.search(query)
 
+const shortFirst = first => first.substring(0, 3) + '.'
+
+const renderName = (user, maxLength=14) => {
+  let fullName = `${user.firstname} ${user.lastname.toUpperCase()}`;
+  if (fullName.length > maxLength) {
+    fullName = `${shortFirst(user.firstname)} ${user.lastname.toUpperCase()}`;
+  }
+  return fullName.substring(0, maxLength);
+}
+
 
 class App extends Component {
   state = {
@@ -119,17 +129,19 @@ class App extends Component {
   }
   render() {
     const results = this.state.query && search(this.state.query) || coworkers;
-    const items = results.map(c => `${c.firstname} ${c.lastname.toUpperCase()}`)
+    const items = results.map(c => renderName(c))
 
     const coworker = results[this.state.selectedIndex];
-
+    const tags = coworker && coworker.tags.slice(0, 3) || []
     return (
-      <element>
+      <element width={40} height={24}>
         <box class={stylesheet.bordered} width="100%" height="15%">
+          <box>Coworker : </box>
           <textbox
             ref={inst => this.input = inst}
             onSubmit={this.onSubmit}
             keys={true}
+
             inputOnFocus={true}
           >
           </textbox>
@@ -164,10 +176,10 @@ class App extends Component {
           <box top={2} height={2}>
             {coworker.email}
           </box>
-          <box top={4} height={coworker.tags.length + 1} >
-            {coworker.tags && coworker.tags.map(t => `#${t}`).join('\n')}
+          <box top={4} height={tags.length + 1} >
+            {tags && tags.map(t => `#${t}`).join('\n')}
           </box>
-          <box top={coworker.tags.length + 5}>
+          <box top={tags.length + 5}>
             {coworker.bio}
           </box>
         </box> }
@@ -182,7 +194,8 @@ const screen = blessed.screen({
   autoPadding: true,
   smartCSR: true,
  // title: 'react-blessed hello world',
-  //width: 40,
+  width: 40,
+  height:24,
   fullUnicode: false,
   terminal: 'm1'
 });
