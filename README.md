@@ -22,6 +22,8 @@ Le fichier `/etc/system.d/system/serial....` démarre agetty
 
 Au login, `/home/pi/.bashrc` est executé et lance `/home/pi/start.sh` lequel configure la console et lance un [screen](https://www.gnu.org/software/screen/) qui lui-même lance `node /home/pi/bl/out.js`.
 
+Cf [scripts](./scripts)
+
 ## Dev
 
  - npm run start
