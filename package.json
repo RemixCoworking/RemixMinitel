@@ -11,6 +11,10 @@
   "bugs": {
     "url": "https://github.com/revolunet/minitel/issues"
   },
+  "scripts": {
+    "start": "babel-node index",
+    "build": "babel index.js -o out.js"
+  },
   "dependencies": {
     "blessed": "^0.1.81",
     "blessed-contrib": "^4.8.5",
