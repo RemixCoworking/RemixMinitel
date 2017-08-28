@@ -1,7 +1,11 @@
 # /etc/inputrc
 
-"\C-SA": accept-line           # ENVOI
+"\C-SA": accept-line             # ENVOI
 "\C-SG": backward-delete-char    # CORRECTION
-"\C-SB": history-search-backward  # RETOUR
-"\C-SH": history-search-forward   # SUITE
+"\C-SB": history-search-backward # RETOUR
+"\C-SH": history-search-forward  # SUITE
 "\C-SE": kill-whole-line         # ANNUL
+#"\C-SD": # GUIDE
+#"\C-SF": # SOMMAIRE
+#"\C-SC": # REPET
+#"\C-SY" # CONNEX FIN

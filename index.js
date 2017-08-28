@@ -3,7 +3,7 @@ import blessed from "blessed"
 import { render } from "react-blessed"
 import Fuse from "fuse.js"
 import debounce from "lodash.debounce"
-
+import figlet from "figlet"
 /*
 
 extract datas from community website
@@ -85,7 +85,7 @@ const Detail = detail => {
   )
 }
 
-class App extends Component {
+class Annuaire extends Component {
   state = {
     selectedIndex: 0,
     query: null
@@ -117,6 +117,9 @@ class App extends Component {
     })
     // bind o key and enter to reset + focus
     screen.key(["o", "S-O", "enter"], (ch, key) => {
+      if (!this.input) {
+        return
+      }
       this.setState(
         {
           query: ""
@@ -183,6 +186,36 @@ class App extends Component {
   }
 }
 
+
+
+class Home extends Component {
+  render() {
+
+    const text = figlet.textSync('REMIX', {
+        font: 'Standard',
+        horizontalLayout: 'default',
+        verticalLayout: 'default',
+        kerning: 'full'
+    });
+    return (
+      <element width={40} height={24}>
+        <box align="center" height={5}>{text}</box>
+        <box style={{ blink: true }} align="center" top={6}> C  O  M  M  U  N  I  T  Y</box>
+
+        <box align="left" class={stylesheet.bordered} top={8} padding={2}>
+
+           <box top={0}>- "Guide" = annuaire</box>
+           <box top={2}>- "Connexion FIN" = accueil</box>
+
+        </box>
+      </element>
+    )
+  }
+}
+
+
+
+
 // Creating our screen
 const screen = blessed.screen({
   autoPadding: true,
@@ -194,10 +227,50 @@ const screen = blessed.screen({
   terminal: "m1"
 })
 
-// Adding a way to quit the program
-screen.key(["escape", "q", "C-c"], function(ch, key) {
-  return process.exit(0)
-})
+
+
+class App extends Component {
+  state = {
+    screen: Home
+  }
+  componentDidMount() {
+    // Adding a way to quit the program
+    let previousKey = null
+    screen.key(["escape", "q", "C-c"], function(ch, key) {
+      previousKey = null
+      return process.exit(0)
+    })
+
+    screen.key(["pageup"], function(ch, key) {
+      previousKey = null
+      //return process.exit(0)
+    })
+
+    screen.key(["C-s"], function(ch, key) {
+      previousKey = "C-S"
+    })
+
+    screen.key(["S-y"], (ch, key) => {
+      if (previousKey === "C-S") {
+        this.setState({
+          screen: Home
+        })
+      }
+    })
+
+    screen.key(["S-d"], (ch, key) => {
+      if (previousKey === "C-S") {
+        this.setState({
+          screen: Annuaire
+        })
+      }
+    })
+  }
+  render() {
+    const Cmp = this.state.screen
+    return <Cmp/>
+  }
+}
 
 // Add a png icon to the box
 // var image = blessed.image({
