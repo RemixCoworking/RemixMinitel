@@ -44,14 +44,11 @@ connecté en SSH : `screen -x` permet de rejoindre la session minitel
 
 ## Sources
 
- - termcap configs... : http://canal.chez.com/terminfo.htm et http://canal.chez.com/term_bash.htm
+ - termcap configs... : http://canal.chez.com/terminfo.htm et http://canal.chez.com/term_bash.htm ❤️
  - https://chapelierfou.org/2016/06/a-minitel-as-a-linux-terminal/
  - http://pila.fr/wordpress/?p=425
  - http://sta6502.blogspot.fr/2016/02/utiliser-un-minitel-comme-terminal-sur.html?m=1
 
 ## Todo
 
- - autologin agetty
- - startup in lowercase
  - affichage caractères spéciaux
- - mapping touche backspace et autres
