@@ -1,11 +1,45 @@
-# /etc/inputrc
-
-"\C-SA": accept-line             # ENVOI
-"\C-SG": backward-delete-char    # CORRECTION
-"\C-SB": history-search-backward # RETOUR
-"\C-SH": history-search-forward  # SUITE
-"\C-SE": kill-whole-line         # ANNUL
-#"\C-SD": # GUIDE
-#"\C-SF": # SOMMAIRE
-#"\C-SC": # REPET
-#"\C-SY" # CONNEX FIN
+# Mode Mixte (Minitel 1) : ### First do $ stty -ixon
+#
+# from http://canal.chez.com/.inputrc_minitel1
+#
+"\C-SA": accept-line          # ENVOI
+"\C-SE": kill-whole-line      # ANNULATION
+"\C-SB": beginning-of-history # RETOUR
+"\C-SC": redraw-current-line  # REPETITION
+"\C-SG": backward-delete-char # CORRECTION
+"\C-SD": "\001man "           # GUIDE
+"\C-SH": end-of-history       # SUITE
+"\C-SF@": "\000"              # ^@ (NUL)
+"\C-SFA": "\001"              # ^A
+"\C-SFB": "\002"              # ^B
+"\C-SFC": "\003"              # ^C
+"\C-SFD": "\004"              # ^D
+"\C-SFE": "\005"              # ^E
+"\C-SFF": "\006"              # ^F
+"\C-SFG": "\007"              # ^G
+"\C-SFH": "\010"              # ^H
+"\C-SFI": "\011"              # ^I
+"\C-SFJ": "\012"              # ^J
+"\C-SFK": "\013"              # ^K
+"\C-SFL": "\014"              # ^L
+"\C-SFM": "\015"              # ^M
+"\C-SFN": "\016"              # ^N
+"\C-SFO": "\017"              # ^O
+"\C-SFP": "\020"              # ^P
+"\C-SFQ": "\021"              # ^Q
+"\C-SFR": "\022"              # ^R
+"\C-SFS": "\023"              # ^S
+"\C-SFT": "\024"              # ^T
+"\C-SFU": "\025"              # ^U
+"\C-SFV": "\026"              # ^V
+"\C-SFW": "\027"              # ^W
+"\C-SFX": "\030"              # ^X
+"\C-SFY": "\031"              # ^Y
+"\C-SFZ": "\032"              # ^Z
+"\C-SF[": "\033"              # ^[ (ESC)
+"\C-SF\\":"\034"              # ^\\
+"\C-SF]": "\035"              # ^] (SS3)
+"\C-SF^": "\036"              # ^^ (Home)
+"\C-SF-": "\037"              # ^_ (US)
+"\C-SI": end-of-line          # TS+C/F
+"\C-SJ":  "\033"              # TS+REPETITION
